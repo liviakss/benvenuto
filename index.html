@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Benvenuto Chicken</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ==============================
+     TELA INICIAL
+================================ -->
+
+<section id="inicio">
+
+    <div class="faixa-italiana"></div>
+
+    <div class="logo-principal">
+        <span class="logo-verde">BENVENUTO</span>
+        <span class="logo-branco"> CHICKEN</span>
+    </div>
+
+    <p class="subtitulo">
+        🍗 Frango crocante, lanches e muito sabor!
+    </p>
+
+    <div class="capa">
+
+        <div class="capa-card">
+            <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+                alt="Lanche">
+        </div>
+
+        <div class="capa-card principal">
+            <img
+                src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=700&q=80"
+                alt="Frango">
+        </div>
+
+        <div class="capa-card">
+            <img
+                src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=700&q=80"
+                alt="Refrigerante">
+        </div>
+
+    </div>
+
+    <button
+        class="botao-cardapio"
+        onclick="mostrarCardapio()">
+
+        🍽️ CARDÁPIO
+
+    </button>
+
+</section>
+
+
+<!-- ==============================
+     CARDÁPIO
+================================ -->
+
+<section id="cardapio" class="hidden">
+
+    <header>
+
+        <div class="topo">
+
+            <button
+                class="botao-topo"
+                onclick="mostrarInicio()">
+
+                ← Início
+
+            </button>
+
+            <div class="logo">
+                <span class="logo-verde">BENVENUTO</span>
+                <span class="logo-vermelho"> CHICKEN</span>
+            </div>
+
+        </div>
+
+        <div class="faixa-italiana"></div>
+
+    </header>
+
+
+    <main class="conteudo">
+
+        <h1 class="titulo">
+            📋 Cardápio
+        </h1>
+
+        <p class="descricao">
+            Escolha uma categoria:
+        </p>
+
+
+        <div class="categorias">
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('lanches')">
+
+                🍔
+                <span>LANCHES</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('baldes')">
+
+                🍗
+                <span>BALDES</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('combos')">
+
+                🔥
+                <span>COMBOS</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('bebidas')">
+
+                🥤
+                <span>BEBIDAS</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('porcoes')">
+
+                🍟
+                <span>PORÇÕES</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('batatas')">
+
+                🥔
+                <span>BATATAS</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('molhos')">
+
+                🥣
+                <span>MOLHOS</span>
+
+            </button>
+
+
+            <button
+                class="categoria"
+                onclick="abrirCategoria('adicionais')">
+
+                ➕
+                <span>ADICIONAIS</span>
+
+            </button>
+
+        </div>
+
+    </main>
+
+</section>
+
+
+<!-- ==============================
+     PRODUTOS
+================================ -->
+
+<section id="produtosPagina" class="hidden">
+
+    <header>
+
+        <div class="topo">
+
+            <button
+                class="botao-topo"
+                onclick="voltarCategorias()">
+
+                ← Categorias
+
+            </button>
+
+
+            <div class="logo">
+                <span class="logo-verde">BENVENUTO</span>
+                <span class="logo-vermelho"> CHICKEN</span>
+            </div>
+
+
+            <button
+                class="botao-topo"
+                onclick="abrirCarrinho()">
+
+                🛒 <span id="contadorTopo">0</span>
+
+            </button>
+
+        </div>
+
+        <div class="faixa-italiana"></div>
+
+    </header>
+
+
+    <main class="conteudo">
+
+        <h1
+            id="tituloCategoria"
+            class="titulo">
+        </h1>
+
+        <p
+            id="descricaoCategoria"
+            class="descricao">
+        </p>
+
+        <div
+            id="listaProdutos"
+            class="produtos">
+        </div>
+
+    </main>
+
+</section>
+
+
+<!-- ==============================
+     BOTÃO CARRINHO
+================================ -->
+
+<button
+    class="carrinho-flutuante"
+    onclick="abrirCarrinho()">
+
+    🛒 MEU PEDIDO
+    (<span id="contador">0</span>)
+
+</button>
+
+
+<!-- ==============================
+     MODAL BALDE
+================================ -->
+
+<div
+    id="modalBalde"
+    class="modal hidden">
+
+    <div class="modal-caixa">
+
+        <div class="modal-topo">
+
+            <h2>🍗 Escolha o frango</h2>
+
+            <button
+                class="fechar"
+                onclick="fecharModal('modalBalde')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <p id="nomeBalde"></p>
+
+        <br>
+
+
+        <div class="escolhas-frango">
+
+            <button
+                class="escolha-frango"
+                onclick="escolherTipoFrango('Coxinha',this)">
+
+                🍗 Coxinha
+
+            </button>
+
+
+            <button
+                class="escolha-frango"
+                onclick="escolherTipoFrango('Sassami',this)">
+
+                🍗 Sassami
+
+            </button>
+
+
+            <button
+                class="escolha-frango"
+                onclick="escolherTipoFrango('Tulipa',this)">
+
+                🍗 Tulipa
+
+            </button>
+
+
+            <button
+                class="escolha-frango"
+                onclick="escolherTipoFrango('Misto',this)">
+
+                🍗 Misto
+
+                <small>+ R$ 5,00</small>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="mistoBox"
+            class="misto-box hidden">
+
+            <h3>
+                Escolha 2 tipos de frango:
+            </h3>
+
+
+            <label class="misto-opcao">
+
+                <input
+                    type="checkbox"
+                    value="Coxinha"
+                    onchange="selecionarMisto(this)">
+
+                Coxinha
+
+            </label>
+
+
+            <label class="misto-opcao">
+
+                <input
+                    type="checkbox"
+                    value="Sassami"
+                    onchange="selecionarMisto(this)">
+
+                Sassami
+
+            </label>
+
+
+            <label class="misto-opcao">
+
+                <input
+                    type="checkbox"
+                    value="Tulipa"
+                    onchange="selecionarMisto(this)">
+
+                Tulipa
+
+            </label>
+
+
+            <p id="statusMisto">
+                Escolha 2 tipos.
+            </p>
+
+        </div>
+
+
+        <div
+            id="resumoBalde"
+            class="resumo">
+
+            Escolha o tipo de frango.
+
+        </div>
+
+
+        <button
+            class="botao-confirmar"
+            onclick="confirmarBalde()">
+
+            🛒 ADICIONAR AO PEDIDO
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     MODAL LANCHES
+================================ -->
+
+<div
+    id="modalLanche"
+    class="modal hidden">
+
+    <div class="modal-caixa">
+
+        <div class="modal-topo">
+
+            <h2>➕ Adicionais</h2>
+
+            <button
+                class="fechar"
+                onclick="fecharModal('modalLanche')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <p id="nomeLanche"></p>
+
+
+        <div id="listaAdicionais"></div>
+
+
+        <button
+            class="botao-confirmar"
+            onclick="confirmarLanche()">
+
+            🛒 ADICIONAR AO PEDIDO
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     CARRINHO
+================================ -->
+
+<div
+    id="modalCarrinho"
+    class="modal hidden">
+
+    <div class="modal-caixa">
+
+        <div class="modal-topo">
+
+            <h2>🛒 Meu pedido</h2>
+
+            <button
+                class="fechar"
+                onclick="fecharModal('modalCarrinho')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div id="listaCarrinho"></div>
+
+
+        <div class="valores">
+
+            <div class="valor-linha">
+
+                <span>Subtotal</span>
+
+                <strong id="subtotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="valor-linha">
+
+                <span>Entrega</span>
+
+                <strong id="taxa">
+                    R$ 4,00
+                </strong>
+
+            </div>
+
+
+            <div class="valor-linha valor-total">
+
+                <span>TOTAL</span>
+
+                <strong id="total">
+                    R$ 4,00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="titulo-recebimento">
+            Como deseja receber?
+        </h3>
+
+
+        <div class="recebimento">
+
+            <button
+                id="botaoEntrega"
+                class="ativo"
+                onclick="selecionarRecebimento('entrega')">
+
+                🚚 ENTREGA
+
+                <small>+ R$ 4,00</small>
+
+            </button>
+
+
+            <button
+                id="botaoRetirada"
+                onclick="selecionarRecebimento('retirada')">
+
+                🏪 RETIRADA
+
+                <small>Sem taxa</small>
+
+            </button>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Seu nome</label>
+
+            <input
+                id="nomeCliente"
+                type="text"
+                placeholder="Digite seu nome">
+
+        </div>
+
+
+        <div
+            id="campoEndereco"
+            class="campo">
+
+            <label>Endereço</label>
+
+            <input
+                id="enderecoCliente"
+                type="text"
+                placeholder="Rua, número e bairro">
+
+        </div>
+
+
+        <div class="campo">
+
+            <label>Observações</label>
+
+            <textarea
+                id="observacoes"
+                placeholder="Alguma observação?">
+            </textarea>
+
+        </div>
+
+
+        <button
+            class="botao-whatsapp"
+            onclick="enviarWhatsApp()">
+
+            📲 ENVIAR PEDIDO PELO WHATSAPP
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
