@@ -1,53 +1,24 @@
-:root {
-    --preto: #050505;
-    --preto-card: #141414;
-
-    --verde: #159447;
-    --vermelho: #d62828;
-
-    --branco: #ffffff;
-    --cinza: #dddddd;
-
-    --amarelo: #ffd43b;
-}
-
 * {
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    background: var(--preto);
-    color: var(--branco);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 18px;
-    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
 }
 
-/* =========================
-   BARRA ITALIANA
-========================= */
+button,
+input,
+textarea {
+    font-family: inherit;
+}
 
-.bandeira {
-    height: 7px;
-
-    background:
-        linear-gradient(
-            to right,
-            var(--verde) 33.33%,
-            var(--branco) 33.33%,
-            var(--branco) 66.66%,
-            var(--vermelho) 66.66%
-        );
+button {
+    cursor: pointer;
 }
 
 /* =========================
@@ -56,806 +27,749 @@ body {
 
 header {
     background: #050505;
-
-    border-bottom: 1px solid #333;
-
+    border-bottom: 3px solid #d71920;
     padding: 20px;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 10;
-}
-
-.logo {
-    font-size: 2.2rem;
-    font-weight: 900;
     text-align: center;
 }
 
-header p {
-    text-align: center;
-    color: var(--cinza);
-
-    margin-top: 5px;
+header h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fff;
 }
-
-.verde {
-    color: var(--verde);
-}
-
-.vermelho {
-    color: var(--vermelho);
-}
-
-/* =========================
-   MENU
-========================= */
 
 nav {
-    max-width: 1100px;
-
-    margin: 15px auto 0;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 10px;
-
-    padding-bottom: 5px;
+    max-width: 500px;
+    margin: auto;
 }
 
 nav button {
     width: 100%;
-
-    background: #181818;
-
-    color: white;
-
-    border: 2px solid #444;
-
-    border-radius: 12px;
-
-    padding: 14px 16px;
-
+    padding: 15px;
+    border: 2px solid #009246;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
     font-size: 18px;
-
     font-weight: bold;
-
-    cursor: pointer;
 }
 
 nav button:hover {
-    background: var(--vermelho);
-    border-color: var(--vermelho);
+    background: #009246;
 }
 
-button:focus,
-input:focus,
-textarea:focus {
-    outline: 4px solid var(--amarelo);
-    outline-offset: 3px;
-}
 
 /* =========================
-   CONTEÚDO
+   INÍCIO
 ========================= */
 
-main {
-    max-width: 1100px;
-
-    margin: auto;
-
-    padding: 20px;
-}
-
-.categoria {
-    display: none;
-
-    padding-top: 20px;
-}
-
-.categoria.ativa {
-    display: block;
-}
-
-.categoria > h2 {
-    font-size: 2.3rem;
-
-    border-left: 7px solid var(--vermelho);
-
-    padding-left: 12px;
-}
-
-.descricao {
-    color: var(--cinza);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    background: #111;
-
-    border: 1px solid #333;
-
-    border-radius: 20px;
-
-    padding: 40px 25px;
-
+.inicio {
     text-align: center;
+    padding: 70px 20px;
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero h1 {
-    font-size: clamp(
-        2.3rem,
-        8vw,
-        4rem
-    );
-
-    margin: 0;
+.inicio h2 {
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
-.hero h2 {
-    color: var(--verde);
-
-    font-size: 1.5rem;
+.inicio p {
+    font-size: 21px;
+    color: #ddd;
+    margin-bottom: 35px;
 }
 
-.hero p {
-    color: var(--cinza);
-
-    font-size: 1.15rem;
+.btn-cardapio {
+    background: #d71920;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 20px 50px;
+    font-size: 28px;
+    font-weight: bold;
+    box-shadow: 0 5px 0 #8e0005;
 }
 
-.botao-principal {
-    background: var(--vermelho);
-
-    color: white;
-
-    border: 0;
-
-    border-radius: 12px;
-
-    padding: 16px 25px;
-
-    font-size: 1.1rem;
-
-    font-weight: 900;
-
-    cursor: pointer;
+.btn-cardapio:hover {
+    transform: translateY(-2px);
 }
+
 
 /* =========================
-   AVISO
+   CARDÁPIO
 ========================= */
 
-.aviso {
-    background: #102418;
-
-    border: 2px solid var(--verde);
-
-    border-radius: 14px;
-
-    padding: 18px;
-
-    margin-top: 20px;
+.cardapio {
+    display: none;
+    padding: 35px 20px;
+    max-width: 700px;
+    margin: auto;
 }
+
+.cardapio h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.cardapio button {
+    width: 100%;
+    display: block;
+    margin-bottom: 14px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    background: #111;
+    color: #fff;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.cardapio button:nth-child(3n + 1) {
+    border-color: #009246;
+}
+
+.cardapio button:nth-child(3n + 2) {
+    border-color: #fff;
+}
+
+.cardapio button:nth-child(3n) {
+    border-color: #ce2b37;
+}
+
+.cardapio button:hover {
+    background: #d71920;
+}
+
 
 /* =========================
    PRODUTOS
 ========================= */
 
-.produtos {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(270px, 1fr)
-        );
-
-    gap: 18px;
+.produtos-pagina {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
-.card {
-    background: var(--preto-card);
+.categoria-produtos {
+    display: none;
+}
 
-    border: 1px solid #3b3b3b;
+.categoria-produtos h2 {
+    font-size: 30px;
+    text-align: center;
+    margin: 25px 0;
+    padding: 15px;
+    border-radius: 10px;
+    background: #111;
+    border-bottom: 4px solid #d71920;
+}
 
-    border-radius: 17px;
-
-    padding: 20px;
+.produto-card {
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 15px;
 
     display: flex;
-
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-.card h3 {
-    font-size: 1.35rem;
-
-    margin-top: 0;
+.produto-info {
+    flex: 1;
 }
 
-.card p {
-    color: var(--cinza);
+.produto-info h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
 }
 
-.preco {
-    font-size: 1.5rem;
-
-    font-weight: 900;
-
-    margin-top: auto;
+.produto-info p {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
-.incluso {
-    color: #8be0a8;
-
-    font-size: 0.95rem;
-
-    margin-top: 7px;
+.produto-info strong {
+    color: #fff;
+    font-size: 20px;
 }
 
-.adicionar {
-    margin-top: 14px;
-
-    background: var(--vermelho);
-
-    color: white;
-
-    border: 0;
-
-    border-radius: 12px;
-
-    padding: 15px;
-
-    font-size: 1.05rem;
-
-    font-weight: 900;
-
-    cursor: pointer;
+.produto-card > button {
+    background: #d71920;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.adicionar:hover {
-    filter: brightness(1.15);
-}
 
 /* =========================
-   CARRINHO FIXO
+   CARRINHO FLUTUANTE
 ========================= */
 
-.carrinho-fixo {
+.carrinho-flutuante {
     position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
 
-    right: 18px;
-    bottom: 18px;
-
-    z-index: 50;
-
-    background: var(--verde);
-
-    color: white;
-
-    border: 3px solid white;
-
+    background: #009246;
+    color: #fff;
+    border: 3px solid #fff;
     border-radius: 50px;
 
-    padding: 15px 20px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 5px 20px #000;
+    padding: 16px 22px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-#quantidadeCarrinho {
-    background: var(--vermelho);
-
-    border-radius: 20px;
-
-    padding: 3px 9px;
-
+#contadorCarrinho {
+    background: #d71920;
+    padding: 5px 9px;
+    border-radius: 50%;
     margin-left: 5px;
 }
 
+
 /* =========================
-   MODAL
+   MODAIS
 ========================= */
 
 .modal {
     display: none;
-
     position: fixed;
-
     inset: 0;
+    z-index: 2000;
 
-    background: #000c;
+    background: rgba(0, 0, 0, 0.85);
 
-    z-index: 100;
-
-    overflow-y: auto;
-
-    padding: 20px;
-}
-
-.modal.aberto {
-    display: flex;
-
+    align-items: center;
     justify-content: center;
 
-    align-items: flex-start;
+    padding: 15px;
 }
 
 .modal-conteudo {
     background: #111;
+    border: 3px solid #d71920;
+    border-radius: 16px;
 
     width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
 
-    max-width: 700px;
-
-    border-radius: 20px;
+    overflow-y: auto;
 
     padding: 25px;
+    position: relative;
+}
 
-    margin-top: 30px;
+.modal-conteudo h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
 
-    border: 1px solid #555;
+.modal-conteudo h3 {
+    margin: 20px 0 12px;
+    font-size: 21px;
 }
 
 .fechar {
-    float: right;
+    position: absolute;
+    top: 12px;
+    right: 12px;
 
-    background: #333;
+    width: 40px;
+    height: 40px;
 
-    color: white;
+    border: none;
+    border-radius: 50%;
 
-    border: 0;
+    background: #d71920;
+    color: #fff;
 
-    border-radius: 8px;
-
-    padding: 8px 12px;
-
-    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+
 /* =========================
-   ITEM DO CARRINHO
+   ADICIONAIS
+========================= */
+
+.adicional-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 13px;
+    margin-bottom: 8px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    background: #181818;
+
+    font-size: 17px;
+}
+
+.adicional-item input {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================
+   BALDE
+========================= */
+
+#modalBalde label {
+    display: block;
+    padding: 13px;
+    margin-bottom: 8px;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    background: #181818;
+
+    font-size: 18px;
+}
+
+#modalBalde input {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+#opcoesMisto {
+    margin-top: 10px;
+    padding: 15px;
+
+    background: #191919;
+    border-radius: 10px;
+
+    border-left: 4px solid #009246;
+}
+
+
+/* =========================
+   BOTÕES DE CONFIRMAÇÃO
+========================= */
+
+.btn-confirmar {
+    width: 100%;
+    margin-top: 20px;
+
+    padding: 17px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #009246;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CARRINHO
 ========================= */
 
 .item-carrinho {
-    border-bottom: 1px solid #444;
-
-    padding: 13px 0;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-.controles button {
-    background: #333;
-
-    color: white;
-
-    border: 1px solid #777;
-
-    border-radius: 7px;
-
-    width: 40px;
-
-    height: 40px;
-
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-/* =========================
-   RESUMO
-========================= */
-
-.resumo {
-    border-top: 2px solid #555;
-
-    margin-top: 15px;
-
-    padding-top: 12px;
-}
-
-.resumo p {
-    display: flex;
-
-    justify-content: space-between;
-}
-
-.resumo h3 {
-    display: flex;
-
-    justify-content: space-between;
-
-    font-size: 1.5rem;
-}
-
-/* =========================
-   ENTREGA / RETIRADA
-========================= */
-
-.opcoes-entrega {
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-}
-
-.opcoes-entrega button {
-    background: #181818;
-
-    color: white;
-
-    border: 2px solid #555;
-
-    border-radius: 12px;
-
-    padding: 15px;
-
-    cursor: pointer;
-
-    display: flex;
-
-    flex-direction: column;
+    grid-template-columns: 1fr auto auto;
+    gap: 15px;
 
     align-items: center;
 
-    gap: 4px;
+    padding: 15px 0;
+    border-bottom: 1px solid #444;
 }
 
-.opcoes-entrega button.selecionado {
-    border-color: var(--verde);
-
-    background: #102418;
+.item-carrinho strong {
+    font-size: 17px;
 }
 
-.opcoes-entrega small {
-    color: var(--cinza);
+.item-carrinho small {
+    display: block;
+    color: #bbb;
+    margin-top: 5px;
 }
+
+.item-carrinho p {
+    margin-top: 5px;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantidade button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #d71920;
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quantidade span {
+    min-width: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    padding: 30px;
+    color: #ccc;
+}
+
 
 /* =========================
-   CAMPOS
+   RECEBIMENTO
 ========================= */
 
-.campo {
-    margin-top: 15px;
+.recebimento {
+    margin-top: 25px;
 }
 
-.campo label {
-    display: block;
-
-    font-weight: 900;
-
-    margin-bottom: 5px;
+.opcoes-recebimento {
+    display: flex;
+    gap: 10px;
 }
 
-.campo input,
-.campo textarea {
-    width: 100%;
+.opcoes-recebimento button {
+    flex: 1;
+    padding: 15px;
 
-    background: #070707;
-
-    color: white;
-
-    border: 2px solid #555;
-
+    border: 2px solid #444;
     border-radius: 10px;
 
-    padding: 13px;
+    background: #181818;
+    color: #fff;
 
-    font-size: 18px;
-
-    font-family: inherit;
+    font-size: 17px;
+    font-weight: bold;
 }
 
-.campo textarea {
-    min-height: 80px;
+.opcoes-recebimento button.ativo {
+    background: #009246;
+    border-color: #fff;
+}
 
+
+/* =========================
+   DADOS DO CLIENTE
+========================= */
+
+.dados-cliente {
+    margin-top: 25px;
+}
+
+.dados-cliente label,
+#campoEndereco label,
+#campoTroco label {
+    display: block;
+    margin: 12px 0 7px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.dados-cliente input,
+.dados-cliente textarea,
+#campoEndereco input,
+#campoTroco input {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #050505;
+    color: #fff;
+
+    border: 2px solid #444;
+    border-radius: 9px;
+
+    font-size: 17px;
+}
+
+.dados-cliente textarea {
+    min-height: 100px;
     resize: vertical;
 }
+
 
 /* =========================
    PAGAMENTO
 ========================= */
 
 .pagamento {
-    margin-top: 25px;
-
-    border-top: 2px solid #444;
-
-    padding-top: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #333;
 }
 
 .pagamento h3 {
-    font-size: 1.4rem;
-
-    margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .opcoes-pagamento {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    display: flex;
     gap: 10px;
 }
 
-.opcoes-pagamento button,
-.opcoes-cartao button,
-.opcoes-troco button {
+.opcoes-pagamento button {
+    flex: 1;
+
+    padding: 15px;
+
     background: #181818;
+    color: #fff;
 
-    color: white;
-
-    border: 2px solid #555;
-
-    border-radius: 12px;
-
-    padding: 15px 10px;
+    border: 2px solid #444;
+    border-radius: 10px;
 
     font-size: 17px;
-
-    font-weight: 900;
-
-    cursor: pointer;
+    font-weight: bold;
 }
 
-.opcoes-pagamento button:hover,
-.opcoes-cartao button:hover,
-.opcoes-troco button:hover {
-    border-color: var(--verde);
+.opcoes-pagamento button.ativo {
+    background: #009246;
+    border-color: #fff;
 }
-
-.opcoes-pagamento button.selecionado,
-.opcoes-cartao button.selecionado,
-.opcoes-troco button.selecionado {
-    background: #102418;
-
-    border-color: var(--verde);
-
-    box-shadow:
-        0 0 0 2px var(--verde);
-}
-
-/* INFORMAÇÕES DE PAGAMENTO */
 
 .pagamento-info {
-    display: none;
-
     margin-top: 15px;
+    padding: 18px;
 
     background: #181818;
+    border-radius: 10px;
 
-    border: 1px solid #444;
-
-    border-radius: 14px;
-
-    padding: 18px;
+    border-left: 4px solid #d71920;
 }
-
-.pagamento-info.ativo {
-    display: block;
-}
-
-.pagamento-info h4 {
-    margin-top: 0;
-
-    font-size: 1.2rem;
-}
-
-/* =========================
-   PIX
-========================= */
 
 .pix-chave {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 
-    background: #070707;
-
-    border: 2px solid var(--verde);
-
-    border-radius: 10px;
-
-    padding: 10px;
-
-    margin: 10px 0;
+    margin: 12px 0;
 }
 
-.pix-chave strong {
+.pix-chave span {
     flex: 1;
 
-    word-break: break-all;
+    padding: 13px;
 
-    font-size: 18px;
+    background: #000;
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    font-size: 17px;
+    word-break: break-all;
 }
 
 .pix-chave button {
-    background: var(--verde);
+    padding: 13px;
 
-    color: white;
+    background: #009246;
+    color: #fff;
 
-    border: 0;
-
+    border: none;
     border-radius: 8px;
 
-    padding: 10px;
-
-    font-weight: 900;
-
-    cursor: pointer;
+    font-weight: bold;
 }
 
-/* =========================
-   CARTÃO
-========================= */
-
-.opcoes-cartao {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-}
-
-/* =========================
-   DINHEIRO
-========================= */
-
+.opcoes-cartao,
 .opcoes-troco {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
+    display: flex;
     gap: 10px;
-
-    margin-bottom: 10px;
 }
 
-#campoTroco {
-    display: none;
+.opcoes-cartao button,
+.opcoes-troco button {
+    flex: 1;
+
+    padding: 14px;
+
+    background: #000;
+    color: #fff;
+
+    border: 2px solid #444;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
 }
+
+.opcoes-cartao button.ativo,
+.opcoes-troco button.ativo {
+    background: #009246;
+    border-color: #fff;
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+.resumo {
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 2px solid #333;
+}
+
+.resumo p {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 7px 0;
+
+    font-size: 17px;
+}
+
+.resumo h2 {
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #d71920;
+}
+
 
 /* =========================
    WHATSAPP
 ========================= */
 
-.botao-whatsapp {
+.btn-whatsapp {
     width: 100%;
 
-    background: var(--verde);
+    margin-top: 25px;
 
-    color: white;
+    padding: 18px;
 
-    border: 0;
+    background: #25d366;
+    color: #fff;
 
-    border-radius: 12px;
+    border: none;
+    border-radius: 10px;
 
-    padding: 16px;
-
-    margin-top: 20px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    font-size: 1.05rem;
+    font-size: 19px;
+    font-weight: bold;
 }
 
-.botao-whatsapp:hover {
-    filter: brightness(1.15);
-}
 
 /* =========================
    RODAPÉ
 ========================= */
 
 footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+
     text-align: center;
 
-    background: #000;
-
-    border-top: 6px solid var(--verde);
-
-    padding: 30px;
+    background: #050505;
+    border-top: 3px solid #009246;
 }
 
-.cores {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 0;
-
-    margin-top: 15px;
+footer p {
+    margin: 8px;
+    font-size: 17px;
 }
 
-.cores span {
-    width: 45px;
-
-    height: 10px;
-}
-
-.cores .verde {
-    background: var(--verde);
-}
-
-.cores .branco {
-    background: white;
-}
-
-.cores .vermelho {
-    background: var(--vermelho);
-}
 
 /* =========================
    CELULAR
 ========================= */
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
 
-    body {
+    header h1 {
+        font-size: 25px;
+    }
+
+    .inicio h2 {
+        font-size: 30px;
+    }
+
+    .inicio p {
         font-size: 18px;
     }
 
-    .logo {
-        font-size: 1.7rem;
+    .cardapio h2 {
+        font-size: 25px;
     }
 
-    .produtos {
+    .cardapio button {
+        font-size: 20px;
+        padding: 18px;
+    }
+
+    .produto-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .produto-card > button {
+        width: 100%;
+        padding: 15px;
+        font-size: 17px;
+    }
+
+    .item-carrinho {
         grid-template-columns: 1fr;
     }
 
-    .opcoes-entrega {
-        grid-template-columns: 1fr;
-    }
-
-    .opcoes-pagamento {
-        grid-template-columns: 1fr;
-    }
-
-    .opcoes-cartao {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-conteudo {
-        margin-top: 10px;
-
-        padding: 20px;
-    }
-
-    .carrinho-fixo {
-        right: 10px;
-
-        bottom: 10px;
+    .opcoes-pagamento,
+    .opcoes-recebimento,
+    .opcoes-cartao,
+    .opcoes-troco {
+        flex-direction: column;
     }
 
     .pix-chave {
         flex-direction: column;
-
         align-items: stretch;
     }
 
     .pix-chave button {
         width: 100%;
+    }
+
+    .carrinho-flutuante {
+        right: 10px;
+        bottom: 10px;
+        font-size: 16px;
     }
 }
