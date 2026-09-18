@@ -4,480 +4,591 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Benvenuto Chicken</title>
+    <title>Benvenuto Chicken 🍗</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="bandeira"></div>
+<header>
+    <h1>BENVENUTO CHICKEN 🍗</h1>
 
-    <header>
-        <div class="logo">
-            <span class="verde">BENVENUTO</span>
-            <span class="vermelho">CHICKEN</span> 🍗
+    <nav>
+        <button onclick="mostrarInicio()">🏠 Início</button>
+        <button onclick="mostrarCategoria('lanches')">🍔 Lanches</button>
+        <button onclick="mostrarCategoria('baldes')">🍗 Baldes</button>
+        <button onclick="mostrarCategoria('combos')">🔥 Combos</button>
+        <button onclick="mostrarCategoria('porcoes')">🍟 Porções</button>
+        <button onclick="mostrarCategoria('molhos')">🥣 Molhos</button>
+        <button onclick="mostrarCategoria('bebidas')">🥤 Bebidas</button>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="inicio">
+
+        <h2>🍗 BENVENUTO CHICKEN</h2>
+
+        <p>
+            O melhor frango, lanches e acompanhamentos!
+        </p>
+
+        <button
+            class="btn-cardapio"
+            onclick="abrirCardapio()">
+            CARDÁPIO
+        </button>
+
+    </section>
+
+
+    <!-- CARDÁPIO -->
+    <section id="cardapio" class="cardapio">
+
+        <h2>🍴 NOSSO CARDÁPIO</h2>
+
+        <button onclick="mostrarCategoria('lanches')">
+            🍔 LANCHES
+        </button>
+
+        <button onclick="mostrarCategoria('baldes')">
+            🍗 BALDES
+        </button>
+
+        <button onclick="mostrarCategoria('combos')">
+            🔥 COMBOS
+        </button>
+
+        <button onclick="mostrarCategoria('bebidas')">
+            🥤 BEBIDAS
+        </button>
+
+        <button onclick="mostrarCategoria('porcoes')">
+            🍟 PORÇÕES
+        </button>
+
+        <button onclick="mostrarCategoria('molhos')">
+            🥣 MOLHOS
+        </button>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+    <section id="produtosPagina" class="produtos-pagina">
+
+        <div id="lanches" class="categoria-produtos">
+            <h2>🍔 LANCHES</h2>
         </div>
 
-        <p>Frango crocante, lanches e combos deliciosos!</p>
+        <div id="baldes" class="categoria-produtos">
+            <h2>🍗 BALDES</h2>
+        </div>
 
-        <nav>
-            <button onclick="mostrarCategoria('inicio')">🏠 Início</button>
-            <button onclick="mostrarCategoria('lanches')">🍔 Lanches</button>
-            <button onclick="mostrarCategoria('baldes')">🍗 Baldes</button>
-            <button onclick="mostrarCategoria('combos')">🔥 Combos</button>
-            <button onclick="mostrarCategoria('porcoes')">🍟 Porções</button>
-            <button onclick="mostrarCategoria('molhos')">🥫 Molhos</button>
-            <button onclick="mostrarCategoria('bebidas')">🥤 Bebidas</button>
-        </nav>
-    </header>
+        <div id="combos" class="categoria-produtos">
+            <h2>🔥 COMBOS</h2>
+        </div>
 
-    <main>
+        <div id="bebidas" class="categoria-produtos">
+            <h2>🥤 BEBIDAS</h2>
+        </div>
 
-        <!-- INÍCIO -->
+        <div id="porcoes" class="categoria-produtos">
+            <h2>🍟 PORÇÕES</h2>
+        </div>
 
-        <section id="inicio" class="categoria ativa">
+        <div id="molhos" class="categoria-produtos">
+            <h2>🥣 MOLHOS</h2>
+        </div>
 
-            <div class="hero">
+    </section>
 
-                <h1>Benvenuto Chicken 🍗</h1>
+</main>
 
-                <h2>O sabor que conquista no primeiro pedaço!</h2>
 
-                <p>
-                    Escolha seus lanches, frangos, combos,
-                    porções e bebidas.
-                </p>
+<!-- BOTÃO CARRINHO -->
+<button
+    class="carrinho-flutuante"
+    onclick="abrirCarrinho()">
 
-                <button
-                    class="botao-principal"
-                    onclick="mostrarCategoria('lanches')">
-                    VER CARDÁPIO
-                </button>
+    🛒 CARRINHO
 
-            </div>
+    <span id="contadorCarrinho">
+        0
+    </span>
 
-            <div class="aviso">
+</button>
 
-                <strong>📦 Entrega:</strong> R$ 4,00
 
-                <br>
+<!-- ========================= -->
+<!-- MODAL DO LANCHE -->
+<!-- ========================= -->
 
-                <strong>🏪 Retirada:</strong> sem taxa
+<div
+    id="lancheModal"
+    class="modal">
 
-            </div>
+    <div class="modal-conteudo">
 
-        </section>
+        <button
+            class="fechar"
+            onclick="fecharLancheModal()">
+            ✕
+        </button>
 
+        <h2 id="lancheNome">
+            Lanche
+        </h2>
 
-        <!-- LANCHES -->
+        <p id="lanchePreco">
+            R$ 0,00
+        </p>
 
-        <section id="lanches" class="categoria">
+        <h3>
+            ➕ Escolha seus adicionais
+        </h3>
 
-            <h2>🍔 Lanches</h2>
+        <div id="listaAdicionais"></div>
 
-            <p class="descricao">
-                Todos os lanches acompanham 1 molho de alho.
-            </p>
+        <button
+            class="btn-confirmar"
+            onclick="confirmarLanche()">
 
-            <div id="lista-lanches" class="produtos"></div>
+            ADICIONAR AO CARRINHO
 
-        </section>
+        </button>
 
+    </div>
 
-        <!-- BALDES -->
+</div>
 
-        <section id="baldes" class="categoria">
 
-            <h2>🍗 Baldes de Frango</h2>
+<!-- ========================= -->
+<!-- MODAL DO BALDE -->
+<!-- ========================= -->
 
-            <p class="descricao">
-                Todo balde de frango acompanha 1 ketchup e 1 barbecue.
-            </p>
+<div
+    id="modalBalde"
+    class="modal">
 
-            <div id="lista-baldes" class="produtos"></div>
+    <div class="modal-conteudo">
 
-        </section>
+        <button
+            class="fechar"
+            onclick="fecharModalBalde()">
+            ✕
+        </button>
 
+        <h2 id="nomeBalde">
+            Balde
+        </h2>
 
-        <!-- COMBOS -->
+        <p id="precoBalde">
+            R$ 0,00
+        </p>
 
-        <section id="combos" class="categoria">
+        <h3>
+            🍗 Escolha o tipo de frango
+        </h3>
 
-            <h2>🔥 Combos</h2>
+        <label>
+            <input
+                type="radio"
+                name="tipoFrango"
+                value="Coxinha">
 
-            <div id="lista-combos" class="produtos"></div>
+            Coxinha
+        </label>
 
-        </section>
+        <label>
+            <input
+                type="radio"
+                name="tipoFrango"
+                value="Sassami">
 
+            Sassami
+        </label>
 
-        <!-- PORÇÕES -->
+        <label>
+            <input
+                type="radio"
+                name="tipoFrango"
+                value="Tulipa">
 
-        <section id="porcoes" class="categoria">
+            Tulipa
+        </label>
 
-            <h2>🍟 Porções e Especiais</h2>
+        <label>
+            <input
+                type="checkbox"
+                id="tipoMisto"
+                onchange="verificarMisto()">
 
-            <div id="lista-porcoes" class="produtos"></div>
+            Misto + R$ 5,00
+        </label>
 
-        </section>
 
+        <div
+            id="opcoesMisto"
+            style="display:none;">
 
-        <!-- MOLHOS -->
+            <h3>
+                Escolha exatamente 2:
+            </h3>
 
-        <section id="molhos" class="categoria">
-
-            <h2>🥫 Molhos</h2>
-
-            <div id="lista-molhos" class="produtos"></div>
-
-        </section>
-
-
-        <!-- BEBIDAS -->
-
-        <section id="bebidas" class="categoria">
-
-            <h2>🥤 Bebidas</h2>
-
-            <div id="lista-bebidas" class="produtos"></div>
-
-        </section>
-
-    </main>
-
-
-    <!-- BOTÃO DO CARRINHO -->
-
-    <button
-        class="carrinho-fixo"
-        onclick="abrirCarrinho()">
-
-        🛒 MEU PEDIDO
-
-        <span id="quantidadeCarrinho">0</span>
-
-    </button>
-
-
-    <!-- MODAL DO CARRINHO -->
-
-    <div id="carrinhoModal" class="modal">
-
-        <div class="modal-conteudo">
-
-            <button
-                class="fechar"
-                onclick="fecharCarrinho()">
-
-                ✕
-
-            </button>
-
-
-            <h2>🛒 Meu Pedido</h2>
-
-            <div id="itensCarrinho"></div>
-
-
-            <!-- RESUMO -->
-
-            <div class="resumo">
-
-                <p>
-                    Subtotal:
-                    <strong id="subtotal">
-                        R$ 0,00
-                    </strong>
-                </p>
-
-                <p>
-                    Entrega:
-                    <strong id="valorEntrega">
-                        R$ 4,00
-                    </strong>
-                </p>
-
-                <h3>
-                    TOTAL:
-                    <span id="total">
-                        R$ 4,00
-                    </span>
-                </h3>
-
-            </div>
-
-
-            <!-- ENTREGA / RETIRADA -->
-
-            <h3>Como deseja receber?</h3>
-
-            <div class="opcoes-entrega">
-
-                <button
-                    id="botaoEntrega"
-                    class="selecionado"
-                    onclick="escolherEntrega('entrega')">
-
-                    🚚
-
-                    <strong>ENTREGA</strong>
-
-                    <small>
-                        + R$ 4,00
-                    </small>
-
-                </button>
-
-
-                <button
-                    id="botaoRetirada"
-                    onclick="escolherEntrega('retirada')">
-
-                    🏪
-
-                    <strong>RETIRADA</strong>
-
-                    <small>
-                        Sem taxa
-                    </small>
-
-                </button>
-
-            </div>
-
-
-            <!-- DADOS DO CLIENTE -->
-
-            <div class="campo">
-
-                <label>Seu nome</label>
-
+            <label>
                 <input
-                    id="nomeCliente"
-                    type="text"
-                    placeholder="Digite seu nome">
+                    type="checkbox"
+                    class="misto-checkbox"
+                    value="Coxinha">
+
+                Coxinha
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    class="misto-checkbox"
+                    value="Sassami">
+
+                Sassami
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    class="misto-checkbox"
+                    value="Tulipa">
+
+                Tulipa
+            </label>
+
+        </div>
+
+
+        <button
+            class="btn-confirmar"
+            onclick="confirmarBalde()">
+
+            ADICIONAR AO CARRINHO
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- MODAL DO CARRINHO -->
+<!-- ========================= -->
+
+<div
+    id="modalCarrinho"
+    class="modal">
+
+    <div class="modal-conteudo carrinho-modal">
+
+        <button
+            class="fechar"
+            onclick="fecharCarrinho()">
+            ✕
+        </button>
+
+        <h2>
+            🛒 SEU PEDIDO
+        </h2>
+
+
+        <div id="listaCarrinho"></div>
+
+
+        <div class="recebimento">
+
+            <h3>
+                📦 Como deseja receber?
+            </h3>
+
+            <div class="opcoes-recebimento">
+
+                <button
+                    id="retirada"
+                    onclick="selecionarRecebimento('retirada')">
+
+                    🏪 RETIRADA
+
+                </button>
+
+                <button
+                    id="entrega"
+                    onclick="selecionarRecebimento('entrega')">
+
+                    🛵 ENTREGA
+
+                </button>
 
             </div>
 
 
             <div
                 id="campoEndereco"
-                class="campo">
+                style="display:none;">
 
-                <label>Endereço para entrega</label>
+                <label>
+                    📍 Endereço
+                </label>
 
-                <textarea
+                <input
+                    type="text"
                     id="endereco"
-                    placeholder="Rua, número e bairro"></textarea>
+                    placeholder="Rua, número, bairro...">
 
             </div>
-
-
-            <!-- PAGAMENTO -->
-
-            <div class="pagamento">
-
-                <h3>💳 Forma de pagamento</h3>
-
-                <div class="opcoes-pagamento">
-
-                    <button
-                        id="pagPix"
-                        onclick="selecionarPagamento('pix')">
-
-                        💚 PIX
-
-                    </button>
-
-                    <button
-                        id="pagCartao"
-                        onclick="selecionarPagamento('cartao')">
-
-                        💳 CARTÃO
-
-                    </button>
-
-                    <button
-                        id="pagDinheiro"
-                        onclick="selecionarPagamento('dinheiro')">
-
-                        💵 DINHEIRO
-
-                    </button>
-
-                </div>
-
-
-                <!-- PIX -->
-
-                <div
-                    id="pixInfo"
-                    class="pagamento-info">
-
-                    <h4>💚 Pagamento via PIX</h4>
-
-                    <p>
-                        Chave PIX:
-                    </p>
-
-                    <div class="pix-chave">
-
-                        <strong id="chavePix">
-                            64213198000174
-                        </strong>
-
-                        <button
-                            type="button"
-                            onclick="copiarPix()">
-
-                            📋 Copiar
-
-                        </button>
-
-                    </div>
-
-                    <p>
-                        Após realizar o PIX, envie o pedido pelo WhatsApp.
-                    </p>
-
-                </div>
-
-
-                <!-- CARTÃO -->
-
-                <div
-                    id="cartaoInfo"
-                    class="pagamento-info">
-
-                    <h4>💳 Pagamento com cartão</h4>
-
-                    <div class="opcoes-cartao">
-
-                        <button
-                            id="cartaoDebito"
-                            onclick="selecionarCartao('debito')">
-
-                            💳 Débito
-
-                        </button>
-
-                        <button
-                            id="cartaoCredito"
-                            onclick="selecionarCartao('credito')">
-
-                            💳 Crédito
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- DINHEIRO -->
-
-                <div
-                    id="dinheiroInfo"
-                    class="pagamento-info">
-
-                    <h4>💵 Pagamento em dinheiro</h4>
-
-                    <p>Precisa de troco?</p>
-
-                    <div class="opcoes-troco">
-
-                        <button
-                            id="trocoNao"
-                            onclick="selecionarTroco('nao')">
-
-                            Não
-
-                        </button>
-
-                        <button
-                            id="trocoSim"
-                            onclick="selecionarTroco('sim')">
-
-                            Sim
-
-                        </button>
-
-                    </div>
-
-
-                    <div
-                        id="campoTroco"
-                        class="campo">
-
-                        <label>
-                            Troco para quanto?
-                        </label>
-
-                        <input
-                            id="valorTroco"
-                            type="number"
-                            step="0.01"
-                            placeholder="Ex.: 50,00">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- OBSERVAÇÕES -->
-
-            <div class="campo">
-
-                <label>Observações</label>
-
-                <textarea
-                    id="observacoes"
-                    placeholder="Ex.: sem cebola"></textarea>
-
-            </div>
-
-
-            <!-- WHATSAPP -->
-
-            <button
-                class="botao-whatsapp"
-                onclick="enviarWhatsApp()">
-
-                📲 ENVIAR PEDIDO PELO WHATSAPP
-
-            </button>
 
         </div>
+
+
+        <!-- CLIENTE -->
+
+        <div class="dados-cliente">
+
+            <label>
+                👤 Seu nome
+            </label>
+
+            <input
+                type="text"
+                id="nomeCliente"
+                placeholder="Digite seu nome">
+
+            <label>
+                📝 Observações
+            </label>
+
+            <textarea
+                id="observacoes"
+                placeholder="Alguma observação sobre o pedido?"></textarea>
+
+        </div>
+
+
+        <!-- PAGAMENTO -->
+
+        <div class="pagamento">
+
+            <h3>
+                💳 FORMA DE PAGAMENTO
+            </h3>
+
+            <div class="opcoes-pagamento">
+
+                <button
+                    id="pagPix"
+                    onclick="selecionarPagamento('pix')">
+
+                    💠 PIX
+
+                </button>
+
+                <button
+                    id="pagCartao"
+                    onclick="selecionarPagamento('cartao')">
+
+                    💳 CARTÃO
+
+                </button>
+
+                <button
+                    id="pagDinheiro"
+                    onclick="selecionarPagamento('dinheiro')">
+
+                    💵 DINHEIRO
+
+                </button>
+
+            </div>
+
+
+            <!-- PIX -->
+
+            <div
+                id="pixInfo"
+                class="pagamento-info"
+                style="display:none;">
+
+                <h4>
+                    💠 PAGAMENTO VIA PIX
+                </h4>
+
+                <p>
+                    Chave PIX:
+                </p>
+
+                <div class="pix-chave">
+
+                    <span id="chavePix">
+                        64213198000174
+                    </span>
+
+                    <button onclick="copiarPix()">
+                        📋 COPIAR
+                    </button>
+
+                </div>
+
+                <p>
+                    Após realizar o pagamento,
+                    envie o comprovante pelo WhatsApp.
+                </p>
+
+            </div>
+
+
+            <!-- CARTÃO -->
+
+            <div
+                id="cartaoInfo"
+                class="pagamento-info"
+                style="display:none;">
+
+                <h4>
+                    💳 ESCOLHA O TIPO
+                </h4>
+
+                <div class="opcoes-cartao">
+
+                    <button
+                        id="cartaoDebito"
+                        onclick="selecionarCartao('debito')">
+
+                        DÉBITO
+
+                    </button>
+
+                    <button
+                        id="cartaoCredito"
+                        onclick="selecionarCartao('credito')">
+
+                        CRÉDITO
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DINHEIRO -->
+
+            <div
+                id="dinheiroInfo"
+                class="pagamento-info"
+                style="display:none;">
+
+                <h4>
+                    💵 PRECISA DE TROCO?
+                </h4>
+
+                <div class="opcoes-troco">
+
+                    <button
+                        id="trocoNao"
+                        onclick="selecionarTroco('nao')">
+
+                        NÃO
+
+                    </button>
+
+                    <button
+                        id="trocoSim"
+                        onclick="selecionarTroco('sim')">
+
+                        SIM
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="campoTroco"
+                    style="display:none;">
+
+                    <label>
+                        💰 Troco para quanto?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="valorTroco"
+                        placeholder="Ex.: 50,00">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESUMO -->
+
+        <div class="resumo">
+
+            <p>
+                Subtotal:
+                <strong id="subtotal">
+                    R$ 0,00
+                </strong>
+            </p>
+
+            <p>
+                Entrega:
+                <strong id="taxaEntrega">
+                    R$ 0,00
+                </strong>
+            </p>
+
+            <h2>
+                TOTAL:
+                <span id="total">
+                    R$ 0,00
+                </span>
+            </h2>
+
+        </div>
+
+
+        <button
+            class="btn-whatsapp"
+            onclick="enviarWhatsApp()">
+
+            📲 ENVIAR PEDIDO PELO WHATSAPP
+
+        </button>
 
     </div>
 
-
-    <!-- RODAPÉ -->
-
-    <footer>
-
-        <h2>Benvenuto Chicken 🍗</h2>
-
-        <p>
-            WhatsApp: (44) 99732-3438
-        </p>
-
-        <div class="cores">
-
-            <span class="verde"></span>
-
-            <span class="branco"></span>
-
-            <span class="vermelho"></span>
-
-        </div>
-
-    </footer>
+</div>
 
 
-    <script src="script.js"></script>
+<footer>
+
+    <p>
+        BENVENUTO CHICKEN 🍗
+    </p>
+
+    <p>
+        📲 (44) 99732-3438
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
